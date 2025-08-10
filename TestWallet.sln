@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35825.156 d17.13
+VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWallet.API", "TestWallet\TestWallet.API.csproj", "{0EFC2E6D-584F-4131-8EF6-F58B8C9CD32E}"
 EndProject
@@ -19,6 +19,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWallet.Test", "TestWallet.Test\TestWallet.Test.csproj", "{45255F46-2E5C-4433-B7AC-B930838A51B6}"
 	ProjectSection(ProjectDependencies) = postProject
 		{63DAC900-6092-432C-AE25-647C6F1E9298} = {63DAC900-6092-432C-AE25-647C6F1E9298}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{754FC069-D67B-A9D7-50A1-8D1CA196D8F1}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
 	EndProjectSection
 EndProject
 Global
