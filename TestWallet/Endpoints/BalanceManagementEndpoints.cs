@@ -16,8 +16,23 @@ namespace TestWallet.API.Endpoints
 
             app.MapPost("/withdraw", async (Guid userId, decimal amount, IBalanceManagementService balanceService) =>
             {
-                var balanceDto = await balanceService.WithdrawAsync(userId, amount);
-                return Results.Ok(balanceDto);
+                try
+                {
+                    var balanceDto = await balanceService.WithdrawAsync(userId, amount);
+                    return Results.Ok(balanceDto);
+                }
+                catch (InvalidOperationException)
+                {
+                    return Results.Json(new { error = "Insufficient funds" }, statusCode: StatusCodes.Status400BadRequest);
+                }
+                catch (ArgumentException ex)
+                {
+                    return Results.Json(new { error = ex.Message }, statusCode: StatusCodes.Status400BadRequest);
+                }
+                catch (Exception ex)
+                {
+                    return Results.Json(new { error = ex.Message }, statusCode: StatusCodes.Status500InternalServerError);
+                }
             })
             .WithName("WithdrawFunds")
             .WithOpenApi();
